@@ -53,6 +53,17 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "This is always section"
+        }
+        success {
+            echo "This is success notification"
+        }
+        failure {
+            ecoh "This is failure notification"
+        }
+    }
 }
 
 def deploy(String environment) {
@@ -75,7 +86,7 @@ def test(String environment) {
             keepAll: false,
             reportDir: "",
             reportFiles: "report_${environment}.html",
-            reportName: "Test Report ${environment}",
+            reportName: "Test_Report_${environment}",
             reportTitles: ""
         ])
     }
